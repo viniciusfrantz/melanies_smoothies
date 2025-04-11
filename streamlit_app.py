@@ -34,7 +34,7 @@ if ingredients_list: #same that if ingredient_list is not null
     
     for ingredient in ingredients_list:
         ingredients_string += ingredient + ' '
-        st.subheader(fruit_chosen + 'Nutrition_Information')
+        st.subheader(ingredient + 'Nutrition_Information')
         smoothiefroot_response = request.get("https://smoothiefroot.com/api/fruit/" + ingredient)
         st_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
     
