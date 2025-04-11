@@ -34,6 +34,9 @@ if ingredients_list: #same that if ingredient_list is not null
     
     for ingredient in ingredients_list:
         ingredients_string += ingredient + ' '
+        st.subheader(fruit_chosen + 'Nutrition_Information')
+        smoothiefroot_response = request.get("https://smoothiefroot.com/api/fruit/" + ingredient)
+        st_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
     
     st.write(ingredients_string)
 
@@ -48,7 +51,4 @@ if ingredients_list: #same that if ingredient_list is not null
     
         st.success('Your Smoothie is ordered!', icon='✅')
 
-#section to display smoothiefroot nutrition information
-smoothiefroot_response = request.get("https://smoothiefroot.com/api/fruit/all")
-st.text(smoothiefroot_response.json())
-st_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
+
